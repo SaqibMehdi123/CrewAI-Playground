@@ -25,6 +25,6 @@ researcher_agent = Agent(
     ),
     tools=[wikipedia_tool],
     llm=llm,
-    verbose=True,  # Enable verbose output for debugging
-    allow_delegation=False  # Prevent delegation to other agents
+    verbose=True,
+    allow_delegation=False
 )
