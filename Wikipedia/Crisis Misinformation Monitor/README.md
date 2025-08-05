@@ -1,27 +1,28 @@
 # Crisis Misinformation Monitor
 
-A CrewAI-powered autonomous system for monitoring and analyzing potential misinformation during crisis situations. The system proactively scans trending news, performs Wikipedia fact-checking, and generates risk assessments without waiting for user input.
+A CrewAI-powered system for analyzing potential misinformation on user-specified topics during crisis situations. The system takes user input, searches relevant news articles, performs Wikipedia fact-checking, and generates comprehensive risk assessments.
 
-## 🤖 Autonomous Features
+## 🎯 Key Features
 
-- **Proactive News Monitoring**: Automatically scans trending headlines and breaking news
-- **Crisis Detection**: Monitors crisis-related keywords (disasters, emergencies, health scares)
-- **Real-time Analysis**: Continuously analyzes news patterns for misinformation indicators
-- **Autonomous Operation**: Works independently or can focus on specific topics
-
-## Features
-
-- **Real-time News Monitoring**: Uses NewsAPI to fetch trending crisis-related articles
+- **User-Driven Analysis**: Takes specific topics from users for targeted misinformation analysis
+- **News Article Search**: Uses NewsAPI to find articles related to the user-specified topic
 - **Wikipedia Fact-Checking**: Cross-references claims with Wikipedia for verification
 - **Risk Assessment**: Classifies misinformation risk levels (Low/Medium/High)
 - **Comprehensive Reporting**: Generates structured misinformation assessment reports
-- **Pattern Detection**: Identifies conflicting information and suspicious patterns
+
+## Features
+
+- **Topic-Specific Analysis**: Analyzes user-provided topics for potential misinformation
+- **Real-time News Search**: Uses NewsAPI to fetch articles related to the specified topic
+- **Wikipedia Verification**: Cross-references information with Wikipedia for accuracy
+- **Risk Classification**: Assesses misinformation risk levels (Low/Medium/High)
+- **Detailed Reporting**: Generates structured reports with evidence and recommendations
 
 ## Agents
 
-1. **Crisis Query Listener Agent**: Autonomously monitors trending news and detects crisis-related misinformation
-2. **Research Agent**: Gathers comprehensive information from Wikipedia
-3. **Fact Checker Agent**: Cross-verifies claims from news and Wikipedia data
+1. **Crisis Query Listener Agent**: Monitors and searches for news articles related to the user-specified topic
+2. **Research Agent**: Gathers comprehensive information from Wikipedia about the topic
+3. **Fact Checker Agent**: Cross-verifies claims from news articles against Wikipedia data
 4. **Risk Classifier Agent**: Assesses the risk level of identified misinformation
 5. **Report Agent**: Generates final structured misinformation reports
 
@@ -45,44 +46,55 @@ A CrewAI-powered autonomous system for monitoring and analyzing potential misinf
 
 ## Usage
 
-The system now operates in two modes:
+When you run the system, you'll be prompted to enter a topic to analyze:
 
-### 1. Autonomous Monitoring Mode (Default)
 ```bash
-cd crew
-python crisis_monitor_crew.py
+Enter a topic to analyze for misinformation (or press Enter for default): 
 ```
-Choose option 1 for autonomous monitoring. The system will:
-- Automatically scan trending headlines from major news sources
-- Monitor crisis-related keywords (disasters, emergencies, health scares, etc.)
-- Detect potential misinformation patterns without user input
-- Generate comprehensive monitoring reports
 
-### 2. Focused Topic Mode
-Choose option 2 and specify a topic. The system will focus its monitoring on that specific area while still performing general scans.
+### How it Works:
+1. **User Input**: Enter a specific topic you want to analyze for misinformation
+2. **News Search**: The system searches NewsAPI for articles related to your topic
+3. **Wikipedia Research**: Gathers factual information about the topic from Wikipedia
+4. **Fact-Checking**: Cross-verifies claims from news articles against Wikipedia data
+5. **Risk Assessment**: Classifies the misinformation risk level
+6. **Report Generation**: Creates a comprehensive analysis report
 
-## Monitoring Keywords
+### Example Topics:
+- "vaccine safety concerns"
+- "climate change denial"
+- "election fraud claims"
+- "natural disaster response"
+- "Pakistan flood 2025"
 
-The system automatically monitors these crisis-related categories:
-- **Breaking News**: Emergency situations, disasters
-- **Health Crises**: Pandemics, outbreaks, medical misinformation
-- **Natural Disasters**: Earthquakes, floods, hurricanes, wildfires
-- **Security Events**: Terrorism, accidents, evacuations
-- **Misinformation Patterns**: Fake news, conspiracy theories, viral hoaxes
+## How the Analysis Works
 
-## Example Output
-
-The autonomous monitoring generates reports including:
-- Current trending headlines with misinformation risk assessment
-- Crisis-related articles flagged for fact-checking
-- Pattern analysis of conflicting information
-- Prioritized recommendations for immediate attention
+The system follows this workflow:
+1. **Topic Input**: User provides a specific topic to investigate
+2. **News Collection**: Searches for recent news articles about the topic
+3. **Wikipedia Research**: Gathers verified information from Wikipedia
+4. **Claim Verification**: Compares news claims against Wikipedia facts
+5. **Risk Assessment**: Evaluates potential misinformation threats
+6. **Report Generation**: Produces actionable recommendations
 
 ## Output
 
 The system generates a structured report including:
-- Original claims/topics analyzed
-- Articles that triggered the analysis
-- Fact-checking verdict and justification
-- Risk assessment and recommendations
-- Suggestions for public correction or further investigation
+- **Original Topic**: The user-specified topic that was analyzed
+- **News Articles Found**: Articles from NewsAPI related to the topic
+- **Wikipedia Research**: Factual information gathered from Wikipedia
+- **Fact-Checking Results**: Verification status of claims (TRUE/FALSE/PARTIALLY TRUE)
+- **Risk Assessment**: Classification of misinformation risk level
+- **Recommendations**: Suggestions for public correction or further investigation
+
+## Example Analysis
+
+```
+Topic: "Pakistan flood 2025 wipes out entire district"
+
+Results:
+- Verdict: UNSUBSTANTIATED
+- Evidence: No Wikipedia or news evidence supports claim of entire district destruction
+- Risk Level: MEDIUM
+- Recommendation: Issue public clarification with accurate flood impact information
+```
