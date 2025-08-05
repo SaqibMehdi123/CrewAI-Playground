@@ -1,6 +1,5 @@
 from crewai import LLM, Agent, Task, Crew
 from dotenv import load_dotenv
-from crewai.tools import BaseTool
 import time
 
 load_dotenv()
